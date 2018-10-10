@@ -60,30 +60,44 @@
         <button onclick="clearError()">Clear error</button>
     </span>
     <div id="_mainbody"  style="display:none">
+        <h2>Admin for Connection</h2>
         <p>
-            This is an empty TRC plugin that demonstrates calling PluginMain().
+            This provides admin support for external data connections from TRC. 
         </p>
-        <p>
-            See <a href="https://github.com/Voter-Science/TrcLibNpm">https://github.com/Voter-Science/TrcLibNpm</a> for more information on writing plugions.
-        </p>
-
-        <h2>Basic sheet information:</h2>
+                
         <table>
             <tr><td>Name:</td><td><div id="SheetName"></div></td></tr>
-            <tr><td>Parent:</td><td><div id="ParentSheetName"></div></td></tr>
             <tr><td>Version:</td><td><div id="SheetVer"></div></td></tr>
             <tr><td>Total Rows:</td><td><div id="RowCount"></div></td></tr>
-            <tr><td>Last refreshed:</td><td><div id="LastRefreshed"></div></td></tr>
         </table> 
-        <div id="locInfo">
+
+        <div id="Mode1">
+            <p>Refresh this sheet and pull latest version of all semantics. </p>
+            <button onclick="_plugin.onClickRefresh()" class="btn">Refresh!</button>
+        </div>
+        <div id="Mode2">
+            <p>Refreshing Sheet ... this can take a few minutes... </p>
+            <div id ="mode2wait"></div>
         </div>
 
-        <button onclick="_plugin.onClickRefresh()">Refresh!</button>
+        <div id="syncStatus">
+            <p>This sheet has an external connection:</p>
+            <table >
+                <tr><td>Kind:</td><td><div id="Kind"></div></td></tr>
+                <tr><td>Description:</td><td><div id="Description"></div></td></tr>
+                <tr><td>LastSyncVersion:</td><td><div id="LastSyncVersion"></div></td></tr>
+                <tr><td>LastUpdateTime:</td><td><div id="LastUpdateTime"></div></td></tr>
+                <tr><td>Last refreshed:</td><td><div id="LastRefreshed"></div></td></tr>
+                <tr id="SyncStatusMsg"><td>Status:</td><td><div id="ErrorMessage"></div></td></tr>
+            </table> 
+        </div>
 
-        <button onclick="_plugin.onGetSheetContents()">GetSheetContents!</button>
-        <div id="contents">
+        <p>Log of previous refreshes to the sheet:</p>
+        <div id="historyLog">
+        </div>
 
-        <p>Congratulations! You made your first TRC plugin!</p>
+       
+
         </div>
     </div>
 </body>

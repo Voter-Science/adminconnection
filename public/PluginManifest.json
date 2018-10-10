@@ -1,10 +1,10 @@
 ﻿{
     // ID must be unique on the gallery
-    "Id": "PluginTemplate",
+    "Id": "AdminConnection",
     "Name": "An empty plugin",
     "Author" :  "Voter-Science",
     "Website" :  "https://github.com/Voter-Science/TRC-API-Samples",
-    "Description": "An empty plugin that just gets the initial login and shows basic sheet properties.",        
-    "Version": "1.0.0", // User SemVer
-    "Tags": [ "demo"  ]
+    "Description": "Manage the rows and external data connection.",        
+    "Version": "1.0.0",
+    "Tags": [ "admin", "_hidden"  ]
 }
