@@ -1,10 +1,10 @@
 ﻿{
     // ID must be unique on the gallery
     "Id": "AdminConnection",
-    "Name": "An empty plugin",
+    "Name": "Manage External Data Connection",
     "Author" :  "Voter-Science",
-    "Website" :  "https://github.com/Voter-Science/TRC-API-Samples",
+    "Website" :  "https://github.com/Voter-Science/adminconnection",
     "Description": "Manage the rows and external data connection.",        
     "Version": "1.0.0",
-    "Tags": [ "admin", "_hidden"  ]
+    "Tags": [ "manage", "_hidden"  ]
 }

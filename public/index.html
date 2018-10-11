@@ -62,17 +62,21 @@
     <div id="_mainbody"  style="display:none">
         <h2>Admin for Connection</h2>
         <p>
-            This provides admin support for external data connections from TRC. 
+            Every TRC sheet is a giant spreadsheet of Rows and Columns.             
+            This provides admin support for managing this shape and the data connections. 
         </p>
                 
+
+        <h2>Summary </h2>
         <table>
             <tr><td>Name:</td><td><div id="SheetName"></div></td></tr>
             <tr><td>Version:</td><td><div id="SheetVer"></div></td></tr>
             <tr><td>Total Rows:</td><td><div id="RowCount"></div></td></tr>
         </table> 
 
+        <h2>Refresh</h2>
         <div id="Mode1">
-            <p>Refresh this sheet and pull latest version of all semantics. </p>
+            <p>Refresh this sheet to update any rows (if this is connected to an external data source) and refresh to the latest version of all the data columns ("semantics").</p>
             <button onclick="_plugin.onClickRefresh()" class="btn">Refresh!</button>
         </div>
         <div id="Mode2">
@@ -81,7 +85,9 @@
         </div>
 
         <div id="syncStatus">
-            <p>This sheet has an external connection:</p>
+            <h2>External Data Connection</h2>
+            <p>This sheet has an external connection. This means the rows are coming from an external source, 
+                and the question results are being pushed back to that source.</p>
             <table >
                 <tr><td>Kind:</td><td><div id="Kind"></div></td></tr>
                 <tr><td>Description:</td><td><div id="Description"></div></td></tr>
@@ -92,7 +98,27 @@
             </table> 
         </div>
 
-        <p>Log of previous refreshes to the sheet:</p>
+        <h2>Columns</h2>
+        <p>            
+            "Data" columns come from the underlying data source. You can then add additional columns that get merged in via matching against the PrimaryKey, "RecId":
+        </p>
+        <ul>
+            
+            <li>To import new columns of (read-only) data ("Semantic"), use <a class="plugin">DataUploader</a>. </li>
+            <li>To create columns that are expressions of other columns ("Expression"), use <a class="plugin">Filter</a> </li>
+            <li>To change questions (adding editable column) data ("Question"), use <a class="plugin">EditQuestions</a> </li>
+        </ul>
+
+        <p>
+            This is the current set of columns:            
+        </p>
+        <div id="columnLog"></div>
+        <p>* These columns are required for the mobile canvasser app to work properly.</p>
+
+        <h2>Rows</h2>
+        <p>This is a log of previous refreshes to the sheet's base data. These refreshes can change the <b>rows</b> and can refresh column data.</p>        
+        <p>To create a child sheet that is a subset of the rows for this sheet, use <a class="plugin">Filter</a>.</p>
+        <p>To view a history log of the <b>changes</b> to the sheet, use <a class="plugin">Audit</a>.</p>
         <div id="historyLog">
         </div>
 
