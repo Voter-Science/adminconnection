@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Basic TRC plugin</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://trcanvasdata.blob.core.windows.net/code/pluginglobal.css"
+    />
+  </head>
+  <body>
+    <script>
+      var _sheetRefGlobal = null;
+      var _opts = null;
+    </script>
+
+    <div id="app"></div>
+
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <!-- Dependencies -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+
+    <!-- Main -->
+    <script src="./bundle.js"></script>
+    <script src="https://trcanvasdata.blob.core.windows.net/code2/plugin.js"></script>
+
+    <script>
+      function PluginMain(sheetRef, opts) {
+        _sheetRefGlobal = sheetRef;
+        _opts = opts;
+        window.mainMajor.setSheetRef(sheetRef);
+      }
+    </script>
+  </body>
+</html>
