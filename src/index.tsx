@@ -192,14 +192,19 @@ export class App extends React.Component<{}, IState> {
           var ok = confirm(
             "Do you want to delete column '" + columnInfo.Name + "'?"
           );
+          this.setState({ loading: true });
           if (ok) {
             var admin = new trcSheet.SheetAdminClient(this._sheet);
             admin
               .postOpDeleteQuestionAsync(columnInfo.Name)
               .then(() => {
+                this.setState({ loading: false });
                 location.reload();
               })
-              .catch(showError);
+              .catch((e) => {
+                this.setState({ loading: false });
+                showError(e);
+              });
           }
         });
       }
